@@ -1,0 +1,8 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+export function getStaticPaths() {
+  return ['dashboard', 'inventory', 'sales', 'customers', 'reports', 'settings'].map((section) => ({ params: { section } }));
+}
+---
+<Layout />

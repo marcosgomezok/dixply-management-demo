@@ -1,0 +1,20 @@
+---
+import '../styles/global.css';
+import App from '../App';
+
+const title = 'Velstock — Business management, made clear';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f8f8fb" />
+    <meta name="description" content="A smarter view of your inventory, sales, and customers." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <App initialPath={Astro.url.pathname} client:load />
+  </body>
+</html>
