@@ -22,6 +22,10 @@ Connect this repository to Netlify. The included `netlify.toml` sets the build c
 
 Use Node.js 24.22.1 (also specified in `.nvmrc` and `netlify.toml`).
 
+The demo is intentionally excluded from search results: every route sets `noindex` metadata, Netlify sends an `X-Robots-Tag` header, and `robots.txt` permits crawlers to fetch pages so they can observe that directive. The shared layout includes localized descriptions and social preview metadata. Netlify also applies a restrictive Content Security Policy and standard security headers.
+
+`noindex` is not access control. Anyone who has a URL can still open the demo; use hosting-level authentication or access restrictions if it must be private.
+
 ## Demo behavior
 
 - English routes: `/en` opens the dashboard; `/en/dashboard`, `/en/inventory`, `/en/sales`, `/en/customers`, `/en/reports`, and `/en/settings` are directly addressable.

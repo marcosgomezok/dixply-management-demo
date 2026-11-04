@@ -2,15 +2,32 @@
 import '../styles/global.css';
 import App from '../App';
 
-const title = 'Velstock — Business management, made clear';
+const language = Astro.url.pathname.startsWith('/es/') || Astro.url.pathname === '/es' ? 'es' : 'en';
+const title = language === 'es'
+  ? 'Velstock | Gestión empresarial clara'
+  : 'Velstock | Business management, made clear';
+const description = language === 'es'
+  ? 'Una forma más clara de gestionar inventario, ventas y clientes.'
+  : 'A clearer way to manage your inventory, sales, and customers.';
+const locale = language === 'es' ? 'es_ES' : 'en_US';
 ---
 <!doctype html>
-<html lang="en">
+<html lang={language}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f8f8fb" />
-    <meta name="description" content="A smarter view of your inventory, sales, and customers." />
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Velstock" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content={locale} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
